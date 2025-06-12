@@ -1,0 +1,308 @@
+/* Reset and base styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background-color: #0f0f0f;
+    color: #ffffff;
+    font-family: 'Lato', sans-serif;
+    font-weight: 300;
+    line-height: 1.618; /* Golden ratio */
+    overflow-x: hidden;
+}
+
+/* Container using golden ratio proportions */
+.container {
+    max-width: 800px; /* ~61.8% of typical desktop width */
+    margin: 0 auto;
+    padding: 0 1rem;
+}
+
+/* Header section - Title only */
+.header {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 6rem 0;
+    position: relative;
+    background-image: url('https://static.independent.co.uk/s3fs-public/thumbnails/image/2020/07/13/15/istock-619643870.jpg');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+}
+
+.header::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(
+        to bottom,
+        rgba(15, 15, 15, 0.8) 0%,
+        rgba(15, 15, 15, 0.3) 20%,
+        rgba(15, 15, 15, 0.3) 80%,
+        rgba(15, 15, 15, 0.8) 100%
+    );
+    z-index: 1;
+}
+
+.header .container {
+    position: relative;
+    z-index: 2;
+}
+
+.main-title {
+    font-family: 'Bebas Neue', cursive;
+    font-size: 4rem;
+    font-weight: 400;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    margin: 2rem 0;
+    opacity: 0;
+    transform: translateY(30px);
+    animation: fadeInUp 1s ease-out 0.5s forwards;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+}
+
+/* Introduction section */
+.introduction {
+    padding: 6.472rem 0;
+    border-bottom: 1px solid #333;
+    text-align: center;
+}
+
+.introduction-text {
+    font-size: 1.618rem;
+    font-weight: 300;
+    max-width: 800px;
+    margin: 0 auto;
+    line-height: 1.618;
+}
+
+/* Section styles */
+.section {
+    padding: 6.472rem 0; /* Golden ratio spacing */
+    border-bottom: 1px solid #333;
+    opacity: 0;
+    transform: translateY(50px);
+    transition: all 0.8s ease-out;
+}
+
+.section.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.section-title {
+    font-family: 'Bebas Neue', cursive;
+    font-size: 2.618rem; /* Golden ratio scale */
+    font-weight: 400;
+    text-transform: uppercase;
+    letter-spacing: 0.03em;
+    margin-bottom: 2rem;
+    text-align: left;
+}
+
+.section-content {
+    font-size: 1.125rem;
+    line-height: 1.618;
+    margin-bottom: 4rem;
+    text-align: justify;
+}
+
+/* Flourish embed container */
+.flourish-container {
+    margin: 4rem 0;
+    border: 1px solid #333;
+    border-radius: 8px;
+    background-color: rgba(255, 255, 255, 0.02);
+    transition: all 0.3s ease;
+    position: relative;
+    width: 100%;
+    height: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+
+.flourish-container:hover {
+    border-color: #555;
+    background-color: rgba(255, 255, 255, 0.05);
+}
+
+.flourish-embed {
+    width: 100%;
+    height: 100%;
+    border: none;
+    border-radius: inherit;
+    position: relative;
+}
+
+/* Project description section */
+.project-description {
+    padding: 4rem 0;
+    text-align: center;
+    border-top: 1px solid #333;
+}
+
+.project-description h3 {
+    font-family: 'Bebas Neue', cursive;
+    font-size: 1.618rem;
+    font-weight: 400;
+    text-transform: uppercase;
+    letter-spacing: 0.03em;
+    margin-bottom: 1.5rem;
+}
+
+.project-description p {
+    font-size: 1rem;
+    line-height: 1.618;
+    max-width: 600px;
+    margin: 0 auto;
+    color: #ccc;
+}
+
+/* Footer section */
+.footer {
+    padding: 4rem 0;
+    text-align: center;
+}
+
+.watermark {
+    margin-bottom: 2rem;
+    opacity: 0.7;
+}
+
+.watermark img {
+    max-width: 200px;
+    height: auto;
+}
+
+.credits {
+    font-size: 0.875rem;
+    color: #888;
+    border-top: 1px solid #333;
+    padding-top: 2rem;
+}
+
+/* Author Profiles Section */
+.author-profiles {
+    padding: 4rem 0;
+    text-align: center;
+    background-color: #0f0f0f;
+}
+
+.author-profiles .profiles {
+    display: flex;
+    justify-content: center;
+    gap: 5rem;
+    flex-wrap: wrap;
+}
+
+.profile {
+    max-width: 200px;
+    text-align: center;
+}
+
+.profile-image {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    margin-bottom: 1rem;
+}
+
+.profile-name {
+    font-family: 'Bebas Neue', cursive;
+    font-size: 1.5rem;
+    margin-bottom: 0.5rem;
+}
+
+.profile-description {
+    font-size: 1rem;
+    color: #ccc;
+}
+
+/* Animations */
+@keyframes fadeInUp {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+    .container {
+        padding: 0 1rem;
+    }
+
+    .main-title {
+        font-size: 3.5rem;
+    }
+
+    .introduction-text {
+        font-size: 1.125rem;
+    }
+
+    .section-title {
+        font-size: 1.8rem;
+    }
+
+    .section-content {
+        font-size: 1rem;
+        text-align: left;
+    }
+
+    .section {
+        padding: 4rem 0;
+    }
+
+    .flourish-embed {
+        height: 400px;
+    }
+
+    .author-profiles .profiles {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .profile {
+        max-width: 90%;
+    }
+}
+
+@media (max-width: 480px) {
+    .main-title {
+        font-size: 3rem;
+    }
+
+    .introduction-text {
+        font-size: 1rem;
+    }
+
+    .flourish-container {
+        padding: 1rem;
+        margin: 2rem 0;
+    }
+
+    .flourish-embed {
+        height: 300px;
+    }
+
+    .header {
+        background-attachment: scroll; /* Fix for mobile */
+    }
+}
